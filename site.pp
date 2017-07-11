@@ -13,7 +13,7 @@ node 'your_node' {
                 group   =>      'root',
                 mode    =>      '0755',
         }
-         nginx::resource::server { "${phpbb}":
+        nginx::resource::server { "${phpbb}":
                 listen_port     =>      80,
                 www_root        =>      "${www_location}/phpbb3",
                 access_log      =>      "/var/log/nginx/phpbb3_${name}_access.log",
