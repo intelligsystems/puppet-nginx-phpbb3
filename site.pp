@@ -1,10 +1,10 @@
 node 'your_node' {
         class { 'nginx':
         }
-        # Files location, replace your location
+        # Files location, replace /home/www your location
         $www_location = '/home/www'
         # PHPBB3 forum
-        # Replace $phpbb your domain name
+        # Replace phpbb3.local your domain name
         $phpbb = 'phpbb3.local'
         # Create directory phpbb3
         file { "${www_location}/phpbb3":
@@ -44,6 +44,7 @@ node 'your_node' {
                 # Use internal directive to prohibit access on older versions.
                 internal        =>      true,
         }
+        # Error sites location. It is based on Debian 8 Jessie default location. 
         nginx::resource::location { 'phpbb3_50x.html':
                 server          =>      "${phpbb}",
                 www_root        =>      '/usr/share/nginx/html',
